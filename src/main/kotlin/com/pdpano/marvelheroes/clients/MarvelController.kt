@@ -4,13 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class MarvelController(private val client: MarvelClient) {
+class MarvelController(private val service: MarvelService) {
 
     @GetMapping()
     fun requestMarvel(): Any {
-        println("Started call")
-        val result = client.getCharacters()
-        println("End call")
-        return result
+        return service.getCharacters()
     }
 }
